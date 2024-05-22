@@ -1,5 +1,4 @@
 public class LeetCode494 {
-
     public int findTargetSumWays(int[] nums, int target) {
         int sum = 0;
         for (int x : nums) {
