@@ -9,7 +9,7 @@ public class MyCircularQueue {
 
 
     public MyCircularQueue(int k) {
-        array = new int[k];
+        array = new int[k+1];
 
     }
 
