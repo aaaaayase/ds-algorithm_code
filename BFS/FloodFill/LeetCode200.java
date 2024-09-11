@@ -28,7 +28,7 @@ public class LeetCode200 {
         return ret;
     }
 
-    public void dfs(char[][] grid, int i, int j) {
+    public void bfs(char[][] grid, int i, int j) {
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[] { i, j });
         vis[i][j]=true;
