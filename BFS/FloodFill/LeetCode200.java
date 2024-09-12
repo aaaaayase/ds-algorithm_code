@@ -19,7 +19,7 @@ public class LeetCode200 {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '1' && !vis[i][j]) {
-                    dfs(grid, i, j);
+                    bfs(grid, i, j);
                     ret++;
                 }
             }
