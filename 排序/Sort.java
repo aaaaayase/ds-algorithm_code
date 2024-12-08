@@ -53,7 +53,7 @@ public class Sort {
             int j = i - gap;
             for (; j >= 0; j -= gap) {
                 if (arr[i] < arr[j]) {
-                    arr[j + 1] = arr[j];
+                    arr[j + gap] = arr[j];
                 } else {
                     break;
                 }
