@@ -1,30 +1,31 @@
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * @author yun
+ * @date 2025/2/8 15:03
+ * @desciption: 54. 螺旋矩阵
+ */
 public class LeetCode54 {
-    //给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素
     public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> ret=new ArrayList<Integer>();
-        if(matrix==null || matrix.length==0 || matrix[0].length==0) {
-            return ret;
-        }
-        int rows=matrix.length,cols=matrix[0].length;
-        boolean[][] visited=new boolean[rows][cols];
-        int total=rows*cols;
-        int row=0,col=0;
-        int[][] direct={{1,0},{0,1},{-1,0},{0,-1}};
-        int directIndex=0;
-        for(int i=0;i<total;i++) {
-            ret.add(matrix[row][col]);
-            visited[row][col]=true;
-            int nextRow=row+direct[directIndex][1],nextCol=col+direct[directIndex][0];
-            if(nextCol<0 || nextCol>=cols || nextRow<0 || nextRow>=rows || visited[nextRow][nextCol]) {
-                directIndex=(directIndex+1)%4;
+        int row=matrix.length;
+        int col=matrix[0].length;
+
+        List<Integer> ret=new ArrayList<>();
+        boolean[][] vis=new boolean[row][col];
+        int[][] move={{0,1},{1,0},{0,-1},{-1,0}};
+        int count=0;
+        int x=0,y=0;
+        for(int i=0;i<row*col;i++) {
+            vis[x][y]=true;
+            ret.add(matrix[x][y]);
+            int tempX=x+move[count%4][0];
+            int tempY=y+move[count%4][1];
+            if(tempX>=row||tempX<0||tempY>=col||tempY<0||vis[tempX][tempY]) {
+                count++;
+                tempX=x+move[count%4][0];
+                tempY=y+move[count%4][1];
             }
-            row=row+direct[directIndex][1];
-            col=col+direct[directIndex][0];
+            x=tempX;
+            y=tempY;
         }
         return ret;
-
     }
 }
